@@ -1,3 +1,4 @@
 accessing
 title: aTitle
-	title := aTitle 
+	"setea el titulo"
+	title := aTitle

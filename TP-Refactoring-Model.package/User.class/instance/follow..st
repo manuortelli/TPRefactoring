@@ -1,3 +1,5 @@
 accessing
 follow: aUser
-	following add: aUser 
+	"agrega un follower"
+
+	following add: aUser

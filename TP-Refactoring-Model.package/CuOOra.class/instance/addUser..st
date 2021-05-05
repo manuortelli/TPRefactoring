@@ -1,3 +1,4 @@
 adding
 addUser: aUser
-	users add: aUser 
+	"agrega un usuario a la coleccion de usuarios"
+	users add: aUser

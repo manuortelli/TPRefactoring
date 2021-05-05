@@ -1,3 +1,4 @@
 accessing
 addAnswer: anAnswer
-	answers add: anAnswer 
+	"agrega una respuesta a la coleccion de respuestas"
+	answers add: anAnswer

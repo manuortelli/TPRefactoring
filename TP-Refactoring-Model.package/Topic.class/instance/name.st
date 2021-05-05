@@ -1,3 +1,4 @@
 accessing
 name
-	^name
+	"devuelve el nombre del topico"
+	^ name
