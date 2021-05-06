@@ -1,10 +1,14 @@
 as yet unclassified
 negativeVotes
 	"devuelve los dislikes en una coleccion r"
-	| r |
+
+	"| r |
 	r := OrderedCollection new.
 	votes
 		do: [ :vote | 
 			vote isLike
 				ifFalse: [ r add: vote ] ].
-	^ r
+	^ r"
+	
+	^votes reject:[ :vote | vote isLike]
+	

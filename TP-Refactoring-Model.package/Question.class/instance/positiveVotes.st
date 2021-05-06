@@ -1,10 +1,13 @@
 as yet unclassified
 positiveVotes
-		"devuelve los likes en una coleccion r"
-	| r |
+	"devuelve los likes en una coleccion r"
+
+	"| r |
 	r := OrderedCollection new.
 	votes
 		do: [ :vote | 
 			vote isLike
 				ifTrue: [ r add: vote ] ].
-	^ r
+	^ r"
+	
+	^votes select:[:vote | vote isLike]
