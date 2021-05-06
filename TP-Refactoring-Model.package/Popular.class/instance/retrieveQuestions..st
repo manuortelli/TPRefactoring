@@ -1,5 +1,5 @@
 as yet unclassified
-questionRetriever: aUser
+retrieveQuestions: aUser
 	| qRet popularTCol averageVotes temp |
 	"qRet := OrderedCollection new.
 	option = #popularToday
@@ -15,4 +15,7 @@ questionRetriever: aUser
 				asSortedCollection: [ :a :b | a positiveVotes size > b positiveVotes size ].
 			qRet := temp last: (100 min: temp size) ].
 	^ qRet reject: [ :q | q user = aUser ]"
+	
+	popularTCol := cuoora questions select:[ :question | question timestamp asDate = Date today]
+	
 	
