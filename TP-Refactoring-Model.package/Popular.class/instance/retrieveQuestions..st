@@ -1,6 +1,6 @@
 as yet unclassified
 retrieveQuestions: aUser
-	| qRet popularTCol averageVotes temp |
+	| qRet popularTCol promedioVotos temporal |
 	"qRet := OrderedCollection new.
 	option = #popularToday
 		ifTrue: [ popularTCol := OrderedCollection new.
@@ -15,7 +15,11 @@ retrieveQuestions: aUser
 				asSortedCollection: [ :a :b | a positiveVotes size > b positiveVotes size ].
 			qRet := temp last: (100 min: temp size) ].
 	^ qRet reject: [ :q | q user = aUser ]"
-	
-	popularTCol := cuoora questions select:[ :question | question timestamp asDate = Date today]
-	
-	
+	promedioVotos := cuoora questions
+		sum:
+			[ :question | question positiveVotes size ]
+				/ cuoora preguntasDeHoy size.
+	temporal := cuoora preguntasDeHoy
+		select: [ :question | question positiveVotes size >= promedioVotos ].
+	temporal := self ordenarPorVotos: temporal.
+	^ temporal reject:[ :question | question user = aUser]

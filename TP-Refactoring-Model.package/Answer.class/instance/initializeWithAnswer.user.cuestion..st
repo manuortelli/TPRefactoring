@@ -4,4 +4,4 @@ initializeWithAnswer: anAnswer user: anUser cuestion: aQuestion
 	user := anUser.
 	question := aQuestion.
 	votes := OrderedCollection new.
-	timestamp := DateAndTime now.
+	timestamp := DateAndTime now
