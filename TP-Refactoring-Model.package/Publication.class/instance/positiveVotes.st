@@ -9,7 +9,5 @@ positiveVotes
 			vote isLike
 				ifTrue: [ r add: vote ] ].
 	^ r"
-	
-	^votes select: [ :vote | vote isLike ]
-	
-	
+
+	^ votes select: [ :vote | vote isLike ]

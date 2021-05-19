@@ -15,9 +15,9 @@ retrieveQuestions: aUser
 				asSortedCollection: [ :a :b | a positiveVotes size > b positiveVotes size ].
 			qRet := temp last: (100 min: temp size) ].
 	^ qRet reject: [ :q | q user = aUser ]"
-	promedioVotos := cuoora questions
+	promedioVotos := (cuoora questions
 		sum:
-			[ :question | question positiveVotes size ]
+			[ :question | question positiveVotes size ])
 				/ cuoora preguntasDeHoy size.
 	temporal := cuoora preguntasDeHoy
 		select: [ :question | question positiveVotes size >= promedioVotos ].

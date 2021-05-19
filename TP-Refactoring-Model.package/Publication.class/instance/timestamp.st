@@ -1,4 +1,5 @@
 accessing
 timestamp
-	"devuelve fecha y hora"
+	"devuelve la fecha y la hora"
+
 	^ timestamp
