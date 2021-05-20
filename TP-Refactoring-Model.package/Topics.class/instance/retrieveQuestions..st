@@ -8,5 +8,6 @@ retrieveQuestions: aUser
 			temp := topicsCol
 				asSortedCollection: [ :a :b | a positiveVotes size > b positiveVotes size ].
 			qRet := temp last: (100 min: temp size) ]"
-	^ self
-		ordenarPorVotos: (aUser topics flatCollect: [ :topico | topico questions ])
+
+	
+	^self filtrarPreguntas: (self  ordenarPorVotos: aUser preguntasDeInteres) user: aUser 

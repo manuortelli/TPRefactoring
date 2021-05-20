@@ -1,6 +1,5 @@
 retrieving
 retrieveQuestions: aUser
-	| qRet followingCol temp |
 	"qRet := OrderedCollection new.
 	option = #social
 		ifTrue: [ followingCol := OrderedCollection new.
@@ -9,5 +8,8 @@ retrieveQuestions: aUser
 			temp := followingCol
 				asSortedCollection: [ :a :b | a positiveVotes size > b positiveVotes size ].
 			qRet := temp last: (100 min: temp size) ]"
-	^self ordenarPorVotos: (aUser following flatCollect: [ :follow | follow questions ]).
-	
+
+	^ self filtrarPreguntas:
+			(self
+				ordenarPorVotos: (aUser following flatCollect: [ :follow | follow questions ]))
+		user: aUser
